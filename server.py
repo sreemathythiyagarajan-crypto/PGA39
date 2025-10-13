@@ -1,5 +1,6 @@
 import pickle
 from flask import Flask, request
+import os
 
 app = Flask(_name_)
 
@@ -34,4 +35,5 @@ def preds():
 
     return f'Predicted Value: {predicted_values},Used Model{model}'
 
-app.run(
+port = int(os.environ.get("PORT", 8000))
+app.run(host = '0.0.0.0', port = port)
